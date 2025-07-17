@@ -3,15 +3,13 @@ package com.example.clime.model;
 public class Course {
     private String id;
     private String name;
-    private int duration;
 
     public Course() {
     }
 
-    public Course(String id, String name, int duration) {
+    public Course(String id, String name) {
         this.id = id;
         this.name = name;
-        this.duration = duration;
     }
 
     public String getId() {
@@ -28,13 +26,5 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
     }
 }

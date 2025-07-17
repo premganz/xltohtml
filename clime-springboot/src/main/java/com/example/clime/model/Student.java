@@ -5,28 +5,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class Student {
-    private String studentId;
+    private String id;
     private String name;
-    private String course;
-    private String grade;
-    private List<Student> students; // For supporting the "all students" feature
+    private List<Course> courses;
 
     public Student() {}
 
-    public Student(String studentId, String name, String course, String grade) {
-        this.studentId = studentId;
+    public Student(String id, String name, List<Course> courses) {
+        this.id = id;
         this.name = name;
-        this.course = course;
-        this.grade = grade;
+        this.courses = courses;
     }
 
-    @JsonProperty("studentId")
-    public String getStudentId() {
-        return studentId;
+    @JsonProperty("id")
+    public String getId() {
+        return id;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -37,27 +34,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getCourse() {
-        return course;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }
