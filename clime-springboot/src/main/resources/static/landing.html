@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Language Interpreter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .editor-section {
+            margin-bottom: 30px;
+        }
+        
+        .editor-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        #scriptInput {
+            width: 100%;
+            height: 400px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        #scriptInput:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .button-section {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+            border-color: #ced4da;
+        }
+        
+        .grammar-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+        
+        .grammar-section h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .grammar-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .grammar-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0e6d2;
+        }
+        
+        .grammar-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .code-symbol {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #e83e8c;
+            font-weight: bold;
+        }
+        
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #dc3545;
+            margin: 20px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #28a745;
+            margin: 20px 0;
+        }
+        
+        .preview-iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .button-section {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mini-Language Interpreter</h1>
+            <p>Transform your custom scripts into dynamic web applications</p>
+        </div>
+        
+        <div class="content">
+            <div class="grammar-section">
+                <h3>Mini-Language Grammar Reference</h3>
+                <ul class="grammar-list">
+                    <li><span class="code-symbol">/</span> - Indicates the beginning of a code matter</li>
+                    <li><span class="code-symbol">//</span> - Indicates the beginning of a text matter</li>
+                    <li><span class="code-symbol">/block</span> - A higher-level container than /matter</li>
+                    <li><span class="code-symbol">/end</span> - Closes the current nested block or matter</li>
+                    <li><span class="code-symbol">v_</span> - A prefix for variable names</li>
+                </ul>
+            </div>
+            
+            <div class="editor-section">
+                <h2>Script Editor</h2>
+                <textarea id="scriptInput" placeholder="Enter your mini-language script here...">/begin block, type api_declaration
+/begin matter, signature getStudentDetails,[parameters] [v_id]
+/end matter
+/end block
+
+/begin block, type output_structure
+/begin matter, output_type json,text //{name:v_student.name, id: v_student_id courses:[{id:v_course_id, name:v_course.name}]}//
+/end matter
+/end block
+
+/begin block, type layout
+/begin matter text //
+
+-------------student details-----------------
+
+student name: v_student.name student id: v_student_id
+
+------------List of courses---------------
+Course_id		Course_name
+------------------------------------------
+v_course_id		v_course_name
+
+//
+/end matter
+/end block</textarea>
+            </div>
+            
+            <div class="button-section">
+                <button class="btn btn-primary" onclick="generateApplication()">
+                    Generate Application
+                </button>
+                <button class="btn btn-secondary" onclick="clearScript()">
+                    Clear Script
+                </button>
+                <button class="btn btn-secondary" onclick="loadExample()">
+                    Load Example
+                </button>
+            </div>
+            
+            <div class="loading" id="loading">
+                Generating application...
+            </div>
+            
+            <div class="result-section" id="result">
+                <h3>Generated Application</h3>
+                <div id="message"></div>
+                <iframe id="preview" class="preview-iframe" style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function generateApplication() {
+            const script = document.getElementById('scriptInput').value.trim();
+            
+            if (!script) {
+                showMessage('Please enter a script to generate the application.', 'error');
+                return;
+            }
+            
+            showLoading(true);
+            hideResult();
+            
+            try {
+                const response = await fetch('/api/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: script
+                });
+                
+                const result = await response.text();
+                
+                if (response.ok) {
+                    showPreview(result);
+                    showMessage('Application generated successfully!', 'success');
+                } else {
+                    showMessage('Error: ' + result, 'error');
+                }
+            } catch (error) {
+                showMessage('Error generating application: ' + error.message, 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        function clearScript() {
+            document.getElementById('scriptInput').value = '';
+            hideResult();
+        }
+        
+        function loadExample() {
+            document.getElementById('scriptInput').value = `/begin block, type api_declaration
+/begin matter, signature getStudentDetails,[parameters] [v_id]
+/end matter
+/end block
+
+/begin block, type output_structure
+/begin matter, output_type json,text //{name:v_student.name, id: v_student_id courses:[{id:v_course_id, name:v_course.name}]}//
+/end matter
+/end block
+
+/begin block, type layout
+/begin matter text //
+
+-------------student details-----------------
+
+student name: v_student.name student id: v_student_id
+
+------------List of courses---------------
+Course_id		Course_name
+------------------------------------------
+v_course_id		v_course_name
+
+//
+/end matter
+/end block`;
+        }
+        
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `<div class="${type}">${message}</div>`;
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function showPreview(html) {
+            const iframe = document.getElementById('preview');
+            iframe.style.display = 'block';
+            
+            // Create a blob URL for the HTML content
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            iframe.src = url;
+            
+            document.getElementById('result').style.display = 'block';
+        }
+        
+        function hideResult() {
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('preview').style.display = 'none';
+            document.getElementById('message').innerHTML = '';
+        }
+        
+        // Auto-resize textarea
+        document.getElementById('scriptInput').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.max(400, this.scrollHeight) + 'px';
+        });
+    </script>
+</body>
+</html>
