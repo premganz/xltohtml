@@ -1,24 +1,32 @@
 package com.example.clime.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class Student {
-    private String id;
+    private String studentId;
     private String name;
-    private List<Course> courses;
+    private String course;
+    private String grade;
+    private List<Student> students; // For supporting the "all students" feature
 
-    public Student(String id, String name, List<Course> courses) {
-        this.id = id;
+    public Student() {}
+
+    public Student(String studentId, String name, String course, String grade) {
+        this.studentId = studentId;
         this.name = name;
-        this.courses = courses;
+        this.course = course;
+        this.grade = grade;
     }
 
-    public String getId() {
-        return id;
+    @JsonProperty("studentId")
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getName() {
@@ -29,11 +37,27 @@ public class Student {
         this.name = name;
     }
 
-    public List<Course> getCourses() {
-        return courses;
+    public String getCourse() {
+        return course;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

@@ -1,0 +1,78 @@
+MIME-Version: 1.0
+Content-Type: multipart/related; boundary="----=_NextPart_01D8B123_ABC45678"
+
+------=_NextPart_01D8B123_ABC45678
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/hackathon.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackathon Data</title>
+</head>
+<body>
+    <h1>Hackathon Student Management</h1>
+    
+    <!-- API Sheet -->
+    <div id="api" style="display:none;">
+        <table>
+            <tr><td>url</td><td>http://localhost:8080/api/students/{studentId}</td></tr>
+            <tr><td>method</td><td>GET</td></tr>
+            <tr><td>parameter</td><td>studentId</td></tr>
+        </table>
+    </div>
+    
+    <!-- Data Sheet -->
+    <div id="data" style="display:none;">
+        <table>
+            <tr><td>studentId</td><td>name</td><td>course</td><td>grade</td></tr>
+            <tr><td>1</td><td>John Doe</td><td>Computer Science</td><td>A</td></tr>
+            <tr><td>2</td><td>Jane Smith</td><td>Mathematics</td><td>B</td></tr>
+        </table>
+    </div>
+    
+    <!-- Layout Sheet -->
+    <div id="layout" style="display:none;">
+        <div>
+            <h2>Student Information</h2>
+            <form id="studentForm">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" placeholder="Enter student ID">
+                <button type="submit">Fetch Student Data</button>
+            </form>
+            <div id="result">
+                <h3>Student Details</h3>
+                <p><strong>Name:</strong> {name}</p>
+                <p><strong>Course:</strong> {course}</p>
+                <p><strong>Grade:</strong> {grade}</p>
+                <p><strong>Student ID:</strong> {studentId}</p>
+                
+                <h3>All Students</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        iterate({students})
+                        <tr>
+                            <td>{studentId}</td>
+                            <td>{name}</td>
+                            <td>{course}</td>
+                            <td>{grade}</td>
+                        </tr>
+                        end_iterate
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+------=_NextPart_01D8B123_ABC45678--

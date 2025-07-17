@@ -1,30 +1,41 @@
 package com.example.clime.service;
 
-import com.example.clime.model.Course;
 import com.example.clime.model.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class StudentService {
 
     private Map<String, Student> studentDatabase = new HashMap<>();
+    private List<Student> allStudents;
 
     public StudentService() {
-        // Sample data with courses
-        Course course1 = new Course("CS101", "Computer Science Fundamentals", 40);
-        Course course2 = new Course("MATH201", "Advanced Mathematics", 35);
-        Course course3 = new Course("ENG101", "English Literature", 30);
+        // Sample data matching the MHT file format
+        Student student1 = new Student("1", "John Doe", "Computer Science", "A");
+        Student student2 = new Student("2", "Jane Smith", "Mathematics", "B");
+        Student student3 = new Student("3", "Bob Johnson", "Physics", "A-");
         
-        studentDatabase.put("S001", new Student("S001", "John Doe", Arrays.asList(course1, course2)));
-        studentDatabase.put("S002", new Student("S002", "Jane Smith", Arrays.asList(course2, course3)));
-        studentDatabase.put("S003", new Student("S003", "Bob Johnson", Arrays.asList(course1, course3)));
+        studentDatabase.put("1", student1);
+        studentDatabase.put("2", student2);
+        studentDatabase.put("3", student3);
+        
+        allStudents = Arrays.asList(student1, student2, student3);
     }
 
     public Student findStudentById(String id) {
-        return studentDatabase.get(id);
+        Student student = studentDatabase.get(id);
+        if (student != null) {
+            // Include the list of all students for the iteration feature
+            Student result = new Student(student.getStudentId(), student.getName(), 
+                                       student.getCourse(), student.getGrade());
+            result.setStudents(allStudents);
+            return result;
+        }
+        return null;
     }
 }
