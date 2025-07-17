@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.clime.ClimeApplicationTests" time="3.188" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.clime.ClimeApplicationTests" time="3.206" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/temurin-17-jdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire/surefirebooter-20250717101534444_3.jar /home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire 2025-07-17T10-15-34_380-jvmRun1 surefire-20250717101534444_1tmp surefire_0-20250717101534444_2tmp"/>
+    <property name="sun.java.command" value="/home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire/surefirebooter-20250717102334188_3.jar /home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire 2025-07-17T10-23-34_117-jvmRun1 surefire-20250717102334188_1tmp surefire_0-20250717102334188_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/runner/work/xltohtml/xltohtml/clime-springboot/target/test-classes:/home/runner/work/xltohtml/xltohtml/clime-springboot/target/classes:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.0/spring-boot-starter-web-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.0/spring-boot-starter-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot/3.2.0/spring-boot-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.0/spring-boot-autoconfigure-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.0/spring-boot-starter-logging-3.2.0.jar:/home/runner/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/home/runner/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/home/runner/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/home/runner/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/home/runner/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/home/runner/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/runner/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.0/spring-boot-starter-json-3.2.0.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/home/runner/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.0/spring-boot-starter-tomcat-3.2.0.jar:/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar:/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.16/tomcat-embed-el-10.1.16.jar:/home/runner/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.16/tomcat-embed-websocket-10.1.16.jar:/home/runner/.m2/repository/org/springframework/spring-web/6.1.1/spring-web-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-beans/6.1.1/spring-beans-6.1.1.jar:/home/runner/.m2/repository/io/micrometer/micrometer-observation/1.12.0/micrometer-observation-1.12.0.jar:/home/runner/.m2/repository/io/micrometer/micrometer-commons/1.12.0/micrometer-commons-1.12.0.jar:/home/runner/.m2/repository/org/springframework/spring-webmvc/6.1.1/spring-webmvc-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-aop/6.1.1/spring-aop-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-context/6.1.1/spring-context-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-expression/6.1.1/spring-expression-6.1.1.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-batch/3.2.0/spring-boot-starter-batch-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.0/spring-boot-starter-jdbc-3.2.0.jar:/home/runner/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/home/runner/.m2/repository/org/springframework/spring-jdbc/6.1.1/spring-jdbc-6.1.1.jar:/home/runner/.m2/repository/org/springframework/batch/spring-batch-core/5.1.0/spring-batch-core-5.1.0.jar:/home/runner/.m2/repository/org/springframework/batch/spring-batch-infrastructure/5.1.0/spring-batch-infrastructure-5.1.0.jar:/home/runner/.m2/repository/org/springframework/spring-tx/6.1.1/spring-tx-6.1.1.jar:/home/runner/.m2/repository/io/micrometer/micrometer-core/1.12.0/micrometer-core-1.12.0.jar:/home/runner/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/home/runner/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-integration/3.2.0/spring-boot-starter-integration-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.0/spring-boot-starter-aop-3.2.0.jar:/home/runner/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/home/runner/.m2/repository/org/springframework/integration/spring-integration-core/6.2.0/spring-integration-core-6.2.0.jar:/home/runner/.m2/repository/org/springframework/spring-messaging/6.1.1/spring-messaging-6.1.1.jar:/home/runner/.m2/repository/org/springframework/retry/spring-retry/2.0.4/spring-retry-2.0.4.jar:/home/runner/.m2/repository/io/projectreactor/reactor-core/3.6.0/reactor-core-3.6.0.jar:/home/runner/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/home/runner/.m2/repository/org/springframework/integration/spring-integration-file/6.2.0/spring-integration-file-6.2.0.jar:/home/runner/.m2/repository/commons-io/commons-io/2.15.0/commons-io-2.15.0.jar:/home/runner/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.0/spring-boot-starter-test-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-test/3.2.0/spring-boot-test-3.2.0.jar:/home/runner/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.0/spring-boot-test-autoconfigure-3.2.0.jar:/home/runner/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/home/runner/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/runner/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/home/runner/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/home/runner/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/home/runner/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/home/runner/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/home/runner/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/home/runner/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/runner/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/runner/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/runner/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/home/runner/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/runner/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/home/runner/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/home/runner/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/home/runner/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/runner/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/home/runner/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/home/runner/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/home/runner/.m2/repository/org/springframework/spring-core/6.1.1/spring-core-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-jcl/6.1.1/spring-jcl-6.1.1.jar:/home/runner/.m2/repository/org/springframework/spring-test/6.1.1/spring-test-6.1.1.jar:/home/runner/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/home/runner/.m2/repository/org/jsoup/jsoup/1.16.1/jsoup-1.16.1.jar:/home/runner/.m2/repository/jakarta/mail/jakarta.mail-api/2.1.2/jakarta.mail-api-2.1.2.jar:/home/runner/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/home/runner/.m2/repository/org/eclipse/angus/angus-mail/2.0.2/angus-mail-2.0.2.jar:/home/runner/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="/home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire/surefirebooter-20250717101534444_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/runner/work/xltohtml/xltohtml/clime-springboot/target/surefire/surefirebooter-20250717102334188_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.15+6"/>
     <property name="user.name" value="runner"/>
@@ -47,7 +47,7 @@
     <property name="user.dir" value="/home/runner/work/xltohtml/xltohtml/clime-springboot"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="4140"/>
+    <property name="PID" value="5105"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
@@ -59,9 +59,9 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[clime-springboot] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.clime.ClimeApplicationTests" time="0.683">
-    <system-out><![CDATA[10:15:35.038 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.clime.ClimeApplicationTests]: ClimeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-10:15:35.125 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.clime.ClimeApplication for test class com.example.clime.ClimeApplicationTests
+  <testcase name="contextLoads" classname="com.example.clime.ClimeApplicationTests" time="0.676">
+    <system-out><![CDATA[10:23:34.786 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.clime.ClimeApplicationTests]: ClimeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:23:34.870 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.clime.ClimeApplication for test class com.example.clime.ClimeApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -71,113 +71,10 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2025-07-17T10:15:35.472Z  INFO 4140 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : Starting ClimeApplicationTests using Java 17.0.15 with PID 4140 (started by runner in /home/runner/work/xltohtml/xltohtml/clime-springboot)
-2025-07-17T10:15:35.474Z  INFO 4140 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2025-07-17T10:15:36.397Z  WARN 4140 --- [clime-springboot] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-Processing MHT file: hackathon.mht
-2025-07-17T10:15:37.402Z  INFO 4140 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : Started ClimeApplicationTests in 2.161 seconds (process running for 2.894)
+2025-07-17T10:23:35.183Z  INFO 5105 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : Starting ClimeApplicationTests using Java 17.0.15 with PID 5105 (started by runner in /home/runner/work/xltohtml/xltohtml/clime-springboot)
+2025-07-17T10:23:35.186Z  INFO 5105 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-07-17T10:23:36.147Z  WARN 5105 --- [clime-springboot] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-07-17T10:23:37.177Z  INFO 5105 --- [clime-springboot] [           main] c.example.clime.ClimeApplicationTests    : Started ClimeApplicationTests in 2.21 seconds (process running for 2.924)
 ]]></system-out>
-    <system-err><![CDATA[Error processing file: PreparedStatementCallback; bad SQL grammar [SELECT JOB_INSTANCE_ID, JOB_NAME
-FROM BATCH_JOB_INSTANCE
-WHERE JOB_NAME = ?
- and JOB_KEY = ?]
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT JOB_INSTANCE_ID, JOB_NAME
-FROM BATCH_JOB_INSTANCE
-WHERE JOB_NAME = ?
- and JOB_KEY = ?]
-	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:103)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1548)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:723)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:754)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:767)
-	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:825)
-	at org.springframework.batch.core.repository.dao.JdbcJobInstanceDao.getJobInstance(JdbcJobInstanceDao.java:183)
-	at org.springframework.batch.core.repository.support.SimpleJobRepository.getLastJobExecution(SimpleJobRepository.java:299)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249)
-	at jdk.proxy2/jdk.proxy2.$Proxy75.getLastJobExecution(Unknown Source)
-	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:111)
-	at org.springframework.batch.core.launch.support.TaskExecutorJobLauncher.run(TaskExecutorJobLauncher.java:59)
-	at com.example.clime.integration.FilePollingConfiguration.lambda$mhtFileProcessor$1(FilePollingConfiguration.java:72)
-	at org.springframework.integration.handler.ReplyProducingMessageHandlerWrapper.handleRequestMessage(ReplyProducingMessageHandlerWrapper.java:59)
-	at org.springframework.integration.handler.AbstractReplyProducingMessageHandler.handleMessageInternal(AbstractReplyProducingMessageHandler.java:145)
-	at org.springframework.integration.handler.AbstractMessageHandler.doHandleMessage(AbstractMessageHandler.java:105)
-	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:73)
-	at org.springframework.integration.dispatcher.UnicastingDispatcher.doDispatch(UnicastingDispatcher.java:145)
-	at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:106)
-	at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:72)
-	at org.springframework.integration.channel.AbstractMessageChannel.sendInternal(AbstractMessageChannel.java:378)
-	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:332)
-	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:302)
-	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:187)
-	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:166)
-	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:47)
-	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:109)
-	at org.springframework.integration.endpoint.SourcePollingChannelAdapter.handleMessage(SourcePollingChannelAdapter.java:206)
-	at org.springframework.integration.endpoint.AbstractPollingEndpoint.messageReceived(AbstractPollingEndpoint.java:481)
-	at org.springframework.integration.endpoint.AbstractPollingEndpoint.doPoll(AbstractPollingEndpoint.java:467)
-	at org.springframework.integration.endpoint.AbstractPollingEndpoint.pollForMessage(AbstractPollingEndpoint.java:419)
-	at org.springframework.integration.endpoint.AbstractPollingEndpoint.lambda$createPoller$4(AbstractPollingEndpoint.java:355)
-	at org.springframework.integration.util.ErrorHandlingTaskExecutor.lambda$execute$0(ErrorHandlingTaskExecutor.java:57)
-	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50)
-	at org.springframework.integration.util.ErrorHandlingTaskExecutor.execute(ErrorHandlingTaskExecutor.java:55)
-	at org.springframework.integration.endpoint.AbstractPollingEndpoint.lambda$createPoller$5(AbstractPollingEndpoint.java:348)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BATCH_JOB_INSTANCE" not found (this database is empty); SQL statement:
-SELECT JOB_INSTANCE_ID, JOB_NAME
-FROM BATCH_JOB_INSTANCE
-WHERE JOB_NAME = ?
- and JOB_KEY = ? [42104-224]
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
-	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
-	at org.h2.message.DbException.get(DbException.java:223)
-	at org.h2.message.DbException.get(DbException.java:199)
-	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8051)
-	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035)
-	at org.h2.command.Parser.readTableOrView(Parser.java:8024)
-	at org.h2.command.Parser.readTablePrimary(Parser.java:1788)
-	at org.h2.command.Parser.readTableReference(Parser.java:2268)
-	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2718)
-	at org.h2.command.Parser.parseSelect(Parser.java:2824)
-	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2708)
-	at org.h2.command.Parser.parseQueryTerm(Parser.java:2564)
-	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2543)
-	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2536)
-	at org.h2.command.Parser.parseQueryExpression(Parser.java:2529)
-	at org.h2.command.Parser.parseQuery(Parser.java:2498)
-	at org.h2.command.Parser.parsePrepared(Parser.java:627)
-	at org.h2.command.Parser.parse(Parser.java:592)
-	at org.h2.command.Parser.parse(Parser.java:564)
-	at org.h2.command.Parser.prepareCommand(Parser.java:483)
-	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
-	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
-	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
-	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
-	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
-	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:327)
-	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
-	at org.springframework.jdbc.core.JdbcTemplate$SimplePreparedStatementCreator.createPreparedStatement(JdbcTemplate.java:1712)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:656)
-	... 53 more
-]]></system-err>
   </testcase>
 </testsuite>

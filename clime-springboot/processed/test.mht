@@ -1,0 +1,54 @@
+MIME-Version: 1.0
+Content-Type: multipart/related; boundary="----=_NextPart_01D8B124_DEF56789"
+
+------=_NextPart_01D8B124_DEF56789
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/test.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Data</title>
+</head>
+<body>
+    <h1>Simple Test</h1>
+    
+    <!-- API Sheet -->
+    <div id="api" style="display:none;">
+        <table>
+            <tr><td>url</td><td>http://localhost:8080/api/students/{studentId}</td></tr>
+            <tr><td>method</td><td>GET</td></tr>
+            <tr><td>parameter</td><td>studentId</td></tr>
+        </table>
+    </div>
+    
+    <!-- Data Sheet -->
+    <div id="data" style="display:none;">
+        <table>
+            <tr><td>studentId</td><td>name</td><td>course</td><td>grade</td></tr>
+            <tr><td>4</td><td>Test Student</td><td>Engineering</td><td>A+</td></tr>
+        </table>
+    </div>
+    
+    <!-- Layout Sheet -->
+    <div id="layout" style="display:none;">
+        <div>
+            <h2>Test Student Lookup</h2>
+            <form id="studentForm">
+                <label for="studentId">Enter Student ID:</label>
+                <input type="text" id="studentId" name="studentId" placeholder="Enter student ID">
+                <button type="submit">Search</button>
+            </form>
+            <div id="result">
+                <h3>Result</h3>
+                <p><strong>Student:</strong> {name} (ID: {studentId})</p>
+                <p><strong>Course:</strong> {course}</p>
+                <p><strong>Grade:</strong> {grade}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+------=_NextPart_01D8B124_DEF56789--
