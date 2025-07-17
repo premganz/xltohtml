@@ -1,7 +1,7 @@
 com/example/clime/service/StudentService.class
 com/example/clime/controller/StudentController.class
-com/example/clime/parser/MhtParser$ApiData.class
 com/example/clime/ClimeApplication.class
+com/example/clime/parser/MhtParser$ApiData.class
 com/example/clime/model/Student.class
 com/example/clime/controller/FileProcessorController.class
 com/example/clime/metamodule/HtmlParser.class
