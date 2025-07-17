@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+        
+        <div class="api-section">
+            <h2>Student Lookup</h2>
+            <p>Click on a button below to fetch student information from the API:</p>
+            <button onclick="fetchStudentData('S001')">Load Student S001 (John Doe)</button>
+            <button onclick="fetchStudentData('S002')">Load Student S002 (Jane Smith)</button>
+            <button onclick="fetchStudentData('S003')">Load Student S003 (Bob Johnson)</button>
+            <div id="student-data"></div>
+        </div>
+        
+        <div class="api-section">
+            <h2>File Processing</h2>
+            <p>The meta-module processes HTML files from the input folder and generates processed HTML files.</p>
+            <p>Place your Excel-generated HTML files in the <code>src/main/resources/input</code> directory.</p>
+            <p>Processed files will appear in the <code>src/main/resources/static</code> directory.</p>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
