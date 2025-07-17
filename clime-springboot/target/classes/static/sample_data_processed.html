@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parsed Data</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Data from sample_data.htm</h1>
+        <div class="table-container">
+            <table class="data-table">
+                <tr>
+                    <td>Student ID</td>
+                    <td>Student Name</td>
+                    <td>Course</td>
+                    <td>Grade</td>
+                </tr>
+                <tr>
+                    <td>S001</td>
+                    <td>John Doe</td>
+                    <td>Computer Science</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>S002</td>
+                    <td>Jane Smith</td>
+                    <td>Mathematics</td>
+                    <td>B+</td>
+                </tr>
+                <tr>
+                    <td>S003</td>
+                    <td>Bob Johnson</td>
+                    <td>English</td>
+                    <td>A-</td>
+                </tr>
+            </table>
+        </div>
+        <div class="api-section">
+            <h2>API Integration</h2>
+            <button onclick="fetchStudentData('S001')">Load Student S001</button>
+            <button onclick="fetchStudentData('S002')">Load Student S002</button>
+            <button onclick="fetchStudentData('S003')">Load Student S003</button>
+            <div id="student-data"></div>
+        </div>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>

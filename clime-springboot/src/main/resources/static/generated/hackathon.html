@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Generated from hackathon.mht</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        form { margin: 20px 0; }
+        input, button { margin: 5px; padding: 8px; }
+        .hidden { display: none; }
+        .result { margin: 20px 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; }
+    </style>
+</head>
+<body>
+<div>
+ <h2>Student Information</h2>
+ <form id="studentForm">
+  <label for="studentId">Student ID:</label> <input type="text" id="studentId" name="studentId" placeholder="Enter student ID"> <button type="submit">Fetch Student Data</button>
+ </form>
+ <div id="result">
+  <h3>Student Details</h3>
+  <p><strong>Name:</strong> {name}</p>
+  <p><strong>Course:</strong> {course}</p>
+  <p><strong>Grade:</strong> {grade}</p>
+  <p><strong>Student ID:</strong> {studentId}</p>
+  <h3>All Students</h3>
+  <table border="1">
+   <thead>
+    <tr>
+     <th>ID</th>
+     <th>Name</th>
+     <th>Course</th>
+     <th>Grade</th>
+    </tr>
+   </thead>
+   <tbody>
+    <div id="students-container"><!-- Template for students iteration --><script type="text/template" id="students-template"> 
+    <tr>
+     <td>{studentId}</td>
+     <td>{name}</td>
+     <td>{course}</td>
+     <td>{grade}</td>
+    </tr> </script></div>
+   </tbody>
+  </table>
+ </div>
+</div>
+<script>
+function populateTemplate(template, data) {
+    return template.replace(/\{([^}]+)\}/g, function(match, key) {
+        return data[key] || match;
+    });
+}
+
+function renderIteration(containerId, templateId, dataArray) {
+    const container = document.getElementById(containerId);
+    const template = document.getElementById(templateId);
+    if (!container || !template) return;
+    
+    let html = '';
+    dataArray.forEach(item => {
+        html += populateTemplate(template.innerHTML, item);
+    });
+    
+    // Remove template and replace with rendered content
+    template.style.display = 'none';
+    const renderedDiv = document.createElement('div');
+    renderedDiv.innerHTML = html;
+    container.appendChild(renderedDiv);
+}
+
+async function fetchData(parameter) {
+    try {
+        const url = 'http://localhost:8080/api/students/{studentId}'.replace('{studentId}', parameter);
+        const response = await fetch(url, { method: 'GET' });
+        const data = await response.json();
+        
+        // Populate single data placeholders
+        document.querySelectorAll('[id="result"] p').forEach(p => {
+            p.innerHTML = populateTemplate(p.innerHTML, data);
+        });
+        
+        // Handle students iteration if data contains students array
+        if (data.students && Array.isArray(data.students)) {
+            renderIteration('students-container', 'students-template', data.students);
+        }
+        
+        // Show result div
+        const resultDiv = document.getElementById('result');
+        if (resultDiv) resultDiv.style.display = 'block';
+        
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        alert('Error fetching data: ' + error.message);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('studentForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const parameter = document.getElementById('studentId').value;
+            if (parameter) {
+                fetchData(parameter);
+            } else {
+                alert('Please enter a studentId');
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
