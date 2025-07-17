@@ -14,6 +14,7 @@ public class HtmlGenerator {
     public String generateHtml(MhtParser.MhtData mhtData, String fileName) {
         MhtParser.ApiData apiData = mhtData.getApiData();
         String layout = mhtData.getLayoutSheet();
+        List<Map<String, String>> dataSheet = mhtData.getDataSheet();
         
         StringBuilder html = new StringBuilder();
         html.append("<!DOCTYPE html>\n");
@@ -34,8 +35,8 @@ public class HtmlGenerator {
         html.append("</head>\n");
         html.append("<body>\n");
         
-        // Add the layout content
-        html.append(processLayout(layout, apiData));
+        // Add the layout content with data populated
+        html.append(processLayout(layout, apiData, dataSheet));
         
         // Add JavaScript for API calls
         html.append(generateJavaScript(apiData));
@@ -46,17 +47,17 @@ public class HtmlGenerator {
         return html.toString();
     }
     
-    private String processLayout(String layout, MhtParser.ApiData apiData) {
+    private String processLayout(String layout, MhtParser.ApiData apiData, List<Map<String, String>> dataSheet) {
         // Remove style="display:none;" from result div to make it visible
         String processedLayout = layout.replaceAll("style=\"display:none;\"", "");
         
-        // Process iteration blocks
-        processedLayout = processIterations(processedLayout);
+        // Process iteration blocks with actual data
+        processedLayout = processIterations(processedLayout, dataSheet);
         
         return processedLayout;
     }
     
-    private String processIterations(String layout) {
+    private String processIterations(String layout, List<Map<String, String>> dataSheet) {
         Pattern iteratePattern = Pattern.compile("iterate\\(\\{([^}]+)\\}\\)(.*?)end_iterate", Pattern.DOTALL);
         Matcher matcher = iteratePattern.matcher(layout);
         
@@ -67,21 +68,38 @@ public class HtmlGenerator {
             result.append(layout, lastEnd, matcher.start());
             
             String arrayName = matcher.group(1);
-            String template = matcher.group(2);
+            String template = matcher.group(2).trim();
             
-            // Generate JavaScript template for iteration
-            result.append("<div id=\"").append(arrayName).append("-container\">");
-            result.append("<!-- Template for ").append(arrayName).append(" iteration -->");
-            result.append("<script type=\"text/template\" id=\"").append(arrayName).append("-template\">");
-            result.append(template);
-            result.append("</script>");
-            result.append("</div>");
+            // Generate actual table rows with data from dataSheet
+            if ("students".equals(arrayName) && !dataSheet.isEmpty()) {
+                for (Map<String, String> record : dataSheet) {
+                    String populatedRow = populateTemplate(template, record);
+                    result.append(populatedRow);
+                }
+            } else {
+                // Fallback: Generate JavaScript template for dynamic iteration (for API responses)
+                result.append("<div id=\"").append(arrayName).append("-container\">");
+                result.append("<!-- Template for ").append(arrayName).append(" iteration -->");
+                result.append("<script type=\"text/template\" id=\"").append(arrayName).append("-template\">");
+                result.append(template);
+                result.append("</script>");
+                result.append("</div>");
+            }
             
             lastEnd = matcher.end();
         }
         
         result.append(layout.substring(lastEnd));
         return result.toString();
+    }
+    
+    private String populateTemplate(String template, Map<String, String> data) {
+        String result = template;
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            String placeholder = "{" + entry.getKey() + "}";
+            result = result.replace(placeholder, entry.getValue());
+        }
+        return result;
     }
     
     private String generateJavaScript(MhtParser.ApiData apiData) {
