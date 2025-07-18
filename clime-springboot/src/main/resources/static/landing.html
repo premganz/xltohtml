@@ -158,6 +158,42 @@
             border-radius: 8px;
             display: none;
         }
+
+        .logs-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #28a745;
+            display: none;
+        }
+
+        .logs-section h3 {
+            color: #155724;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .log-container {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .log-entry {
+            padding: 2px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
         
         .loading {
             text-align: center;
@@ -291,6 +327,13 @@ v_course_id		v_course_name
             <div class="loading" id="loading">
                 Generating application...
             </div>
+
+            <div class="logs-section" id="logs">
+                <h3>Processing Logs</h3>
+                <div class="log-container" id="logContainer">
+                    <!-- Log entries will appear here -->
+                </div>
+            </div>
             
             <div class="result-section" id="result">
                 <h3>Generated Application</h3>
@@ -301,6 +344,8 @@ v_course_id		v_course_name
     </div>
 
     <script>
+        let logEventSource = null;
+
         async function generateApplication() {
             const script = document.getElementById('scriptInput').value.trim();
             
@@ -311,6 +356,11 @@ v_course_id		v_course_name
             
             showLoading(true);
             hideResult();
+            showLogs();
+            clearLogs();
+            
+            // Start log streaming
+            startLogStream();
             
             try {
                 const response = await fetch('/api/generate', {
@@ -321,24 +371,72 @@ v_course_id		v_course_name
                     body: script
                 });
                 
-                const result = await response.text();
+                const result = await response.json();
                 
-                if (response.ok) {
-                    showPreview(result);
-                    showMessage('Application generated successfully!', 'success');
+                if (response.ok && result.status === 'success') {
+                    showPreview(result.html);
+                    showMessage(`Application generated successfully! Saved as: ${result.filename}`, 'success');
                 } else {
-                    showMessage('Error: ' + result, 'error');
+                    showMessage('Error: ' + (result.error || 'Unknown error'), 'error');
                 }
             } catch (error) {
                 showMessage('Error generating application: ' + error.message, 'error');
             } finally {
                 showLoading(false);
+                stopLogStream();
             }
+        }
+
+        function startLogStream() {
+            if (logEventSource) {
+                logEventSource.close();
+            }
+            
+            logEventSource = new EventSource('/api/logs');
+            
+            logEventSource.addEventListener('log', function(event) {
+                addLogEntry(event.data);
+            });
+            
+            logEventSource.onerror = function(event) {
+                console.error('Log stream error:', event);
+            };
+        }
+
+        function stopLogStream() {
+            if (logEventSource) {
+                logEventSource.close();
+                logEventSource = null;
+            }
+        }
+
+        function addLogEntry(message) {
+            const logContainer = document.getElementById('logContainer');
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.textContent = message;
+            logContainer.appendChild(logEntry);
+            
+            // Auto-scroll to bottom
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        function clearLogs() {
+            document.getElementById('logContainer').innerHTML = '';
+        }
+
+        function showLogs() {
+            document.getElementById('logs').style.display = 'block';
+        }
+
+        function hideLogs() {
+            document.getElementById('logs').style.display = 'none';
         }
         
         function clearScript() {
             document.getElementById('scriptInput').value = '';
             hideResult();
+            hideLogs();
         }
         
         function loadExample() {
@@ -396,6 +494,11 @@ v_course_id		v_course_name
             document.getElementById('preview').style.display = 'none';
             document.getElementById('message').innerHTML = '';
         }
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', function() {
+            stopLogStream();
+        });
         
         // Auto-resize textarea
         document.getElementById('scriptInput').addEventListener('input', function() {
