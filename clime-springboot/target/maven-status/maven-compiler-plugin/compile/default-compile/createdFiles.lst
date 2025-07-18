@@ -9,9 +9,7 @@ com/example/clime/controller/FileProcessorController.class
 com/example/clime/metamodule/HtmlParser.class
 com/example/clime/parser/MiniLanguageParser$OutputStructure.class
 com/example/clime/parser/MiniLanguageParser.class
-com/example/clime/batch/BatchConfiguration.class
 com/example/clime/parser/MhtParser.class
-com/example/clime/integration/FilePollingConfiguration.class
 com/example/clime/controller/WebInterfaceController.class
 com/example/clime/metamodule/FileProcessor.class
 com/example/clime/parser/MiniLanguageParser$ParsedScript.class
